@@ -1,0 +1,3 @@
+[submodule "core/components/simplenamiapiextra/model/simplenamiapi"]
+	path = core/components/simplenamiapiextra/model/simplenamiapi
+	url = https://github.com/Florian1990/simpleNaMiAPI
