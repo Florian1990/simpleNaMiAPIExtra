@@ -59,9 +59,13 @@ if (isset($saveCookieInSession) && $saveCookieInSession) {
     $config['apiSessionTokenRef'] =& $_SESSION['simpleNaMiAPIExtra.' . $name]['apiSessionToken'];
 }
 
-$modx->getService($name,
-        'modNamiWrapper',
-        $modx->getOption('simplenamiapiextra.core_path', null, $modx->getOption('core_path') . 'components/simplenamiapiextra/') . 'model/',
-        $config);
-
-return '';
+try {
+    $nw = $modx->getService($name,
+            'modNamiWrapper',
+            $modx->getOption('simplenamiapiextra.core_path', null, $modx->getOption('core_path') . 'components/simplenamiapiextra/') . 'model/',
+            $config);
+} catch(Exception $e) {
+    $modx->log(modX::LOG_LEVEL_ERROR, $e, '', 'getNamiWrapper', __FILE__, __LINE__);
+    return '';
+}
+return $nw;

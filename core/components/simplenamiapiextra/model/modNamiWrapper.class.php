@@ -21,12 +21,56 @@ include_once 'simplenamiapi/NamiWrapper.class.php';
 
 /**
  * Erweiter NamiWrapper und überschreibt den Konstruktor, um MODX-kompatibel zu
- * werden
+ * sein. Außerdem werden alle öffentlichen Methoden überschrieben um Fehler zu
+ * loggen.
  *
  * @author Florian
  */
 class modNamiWrapper extends NamiWrapper {
+    private $modx;
+    
     public function __construct($modx, $config = null) {
-        parent::__construct($config, null);
+        $this->modx = $modx;
+        try {
+            parent::__construct($config, null);
+        } catch(Exception $e) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, $e, '', 'modNamiWrapper::__construct(…)', __FILE__, __LINE__);
+            throw $e;
+        }
+    }
+    
+    public function request($method, $resource, $content = null, $apiMajor = null, $apiMinor = null, $encoding = null, $autoLogin = true) {
+        try {
+            $result = parent::request($method, $resource, $content, $apiMajor, $apiMinor, $encoding, $autoLogin);
+        } catch (Exception $e) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, $e, '', 'modNamiWrapper::request(…)', __FILE__, __LINE__);
+            throw $e;
+        }
+        return $result;
+    }
+    
+    public function login($username = null, $password = null) {
+        try {
+            $result = parent::login($username, $password);
+        } catch (Exception $e) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, $e, '', 'modNamiWrapper::login(…)', __FILE__, __LINE__);
+            throw $e;
+        }
+        return $result;
+    }
+    
+    public function logout($deleteLoginCredentials = false) {
+        try {
+            $result = parent::logout($deleteLoginCredentials);
+        } catch (Exception $e) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, $e, '', 'modNamiWrapper::logout(…)', __FILE__, __LINE__);
+            throw $e;
+        }
+        return $result;
+    }
+    
+    // prevent getNamiWrapper snippet from accidentally printing anything
+    public function __toString() {
+        return '';
     }
 }
