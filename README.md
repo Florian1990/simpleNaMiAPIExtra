@@ -31,19 +31,23 @@ modNamiWrapper bereitzustellen.
 
 Folgende Parameter können an das Snippet übergeben werden:
 
-`&name string` Optional. Standardwert: `'modNamiWrapper'`. Der Name, unter dem
+`&name` `string` Optional. Standardwert: `'modNamiWrapper'`. Der Name, unter dem
     das erstellte Objekt für nachfolgend ausgeführte Snippets zur Verfügung
     steht.
-`&config array` Optional. Standardwert: `[]`. Das Konfigurations-Array, das an
+
+`&config` `array` Optional. Standardwert: `[]`. Das Konfigurations-Array, das an
     den Konstruktor von modNamiWrapper übergeben wird.
-`&iniFile string|null` Optional. Standardwert: `null`. Falls `&iniFile` ungleich
+
+`&iniFile` `string|null` Optional. Standardwert: `null`. Falls `&iniFile` ungleich
     `null` bzw. `''` ist, wird `$config['iniFile']` auf den übergebenen Wert
     gesetzt. Relative Pfadangaben sind relativ zu
     `{core_path}components/simplenamiapiextra/model/simplenamiapi/`
-`&saveCookieInFile boolean|null` Optional. Standardwert: `null`. Falls
+
+`&saveCookieInFile` `boolean|null` Optional. Standardwert: `null`. Falls
     `&saveCookieInFile` ungleich `null` bzw. `''` ist, wird
     `$config['saveCookieInFile']` auf den übergebenen Wert gesetzt.
-`&saveCookieInSession boolean` Optional. Standardwert: `false`. Falls
+
+`&saveCookieInSession` `boolean` Optional. Standardwert: `false`. Falls
     `&saveCookieInSession` `true` ist, wird der Inhalt des NaMi-Cookies in
     `$_SESSION['simpleNaMiAPIExtra.' . &name]` gespeichert.
 
