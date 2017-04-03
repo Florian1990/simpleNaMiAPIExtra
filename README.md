@@ -53,7 +53,7 @@ Folgende Parameter können an das Snippet übergeben werden:
 
 Beispiel 1: Snippet in Ressource einbinden
 
-Wenn Sie in einer Ressource `[[!getNamiWrapper? &name=\`meinWrapper\`]]`
+Wenn Sie in einer Ressource ``[[!getNamiWrapper? &name=`meinWrapper`]]``
 einbinden, können alle nachfolgend ausgefürhten Snippets mittels `$nw =
 $modx->getService('meinWrapper')` auf das erstellte Objekt zugreifen.
 
