@@ -1,7 +1,18 @@
 Versionshistorie für simpleNaMiAPIExtra
 =======================================
 
+Version 1.0 rc1
+---------------
+
+* simpleNaMiAPI eingebunden.
+* NamiWrapper-Klasse erweitert.
+* getNamiWrapper-Snippet geschrieben.
+* Standard-Optionen für getNamiWrapper-Snippet festgelegt.
+* Installations-Optionen hinzugefügt.
+* Resolver zur Erstellung einer custom.ini-Datei geschrieben.
+* Hinweistext verfasst.
+
 Version 1.0 dev
 ---------------
 
-* Initialer Build.
+* Initiale Builds.

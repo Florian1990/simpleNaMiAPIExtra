@@ -21,7 +21,7 @@
  * 
  * BESCHREIBUNG
  * 
- * Dieses Snippet ruft $modx-getService() auf um ein Objekt der Klasse modNamiWrapper
+ * Dieses Snippet ruft $modx->getService() auf um ein Objekt der Klasse modNamiWrapper
  * bereitzustellen.
  * 
  * EIGENSCHAFTEN
@@ -51,7 +51,7 @@ if (!(isset($config) && is_array($config))) {
 if (isset($iniFile) && is_string($iniFle) && '' != $iniFile) {
     $config['iniFile'] = $iniFile;
 }
-if (isset($saveCookieInFile) && null != $saveCookieInFile && '' != $saveCookieInFile) {
+if (isset($saveCookieInFile) && null != $saveCookieInFile && '' != $saveCookieInFile && 'null' != $saveCookieInFile) {
     $config['saveCookieInFile'] = $saveCookieInFile;
 }
 if (isset($saveCookieInSession) && $saveCookieInSession) {

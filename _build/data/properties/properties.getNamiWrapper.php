@@ -53,20 +53,21 @@ $properties = [
         . ' $config[\'saveCookieInFile\'] auf den übergebenen Wert gesetzt.',
         'type' => 'list',
         'options' => [
-            ['text' => 'null','value' => null],
+            ['text' => 'null','value' => 'null'],
             ['text' => 'true','value' => true],
             ['text' => 'false','value' => false],
         ],
-        'value' => null,
+        'value' => 'null',
         'lexicon' => 'combo-boolean'
     ],
     [
         'name' => 'saveCookieInSession',
         'desc' => 'Falls &saveCookieInSession true ist, wird der Inhalt des NaMi-Cookies'
         . ' in $_SESSION[\'simpleNaMiAPIExtra.\' . $name] gespeichert.',
-        'type' => '',
+        'type' => 'combo-boolean',
         'options' => '',
         'value' => false,
         'lexicon' => ''
     ],
 ];
+return $properties;

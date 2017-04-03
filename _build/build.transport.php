@@ -25,7 +25,7 @@ set_time_limit(0);
 define('PKG_NAME','SimpleNaMiAPIExtra');
 define('PKG_NAME_LOWER','simplenamiapiextra');
 define('PKG_VERSION','1.0');
-define('PKG_RELEASE','dev');
+define('PKG_RELEASE','rc1');
 
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
@@ -33,7 +33,7 @@ $sources = [
     'root' => $root,
     'build' => $root . '_build/',
     'data' => $root . '_build/data/',
-    //'resolvers' => $root . '_build/resolvers/',
+    'resolvers' => $root . '_build/resolvers/',
     //'chunks' => $root.'core/components/'.PKG_NAME_LOWER.'/chunks/',
     //'lexicon' => $root . 'core/components/'.PKG_NAME_LOWER.'/lexicon/',
     'docs' => $root.'core/components/'.PKG_NAME_LOWER.'/docs/',
@@ -90,6 +90,8 @@ $vehicle->resolve('file', [
     'source' => $sources['source_core'],
     'target' => "return MODX_CORE_PATH . 'components/';",
    ]);
+$modx->log(modX::LOG_LEVEL_INFO, 'Adding php resolver to category...');
+$vehicle->resolve('php', ['source' => $sources['resolvers'] . 'resolve.ini.php']);
 $builder->putVehicle($vehicle);
 
 $modx->log(modX::LOG_LEVEL_INFO,'Adding package attributes and setup options...');
@@ -97,8 +99,8 @@ $builder->setPackageAttributes([
     'license' => file_get_contents($sources['docs'] . 'license.txt'),
     'readme' => file_get_contents($sources['docs'] . 'readme.txt'),
     'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),
-    'setup-options' => [''
-        . 'source' => $sources['build'].'setup.options.php',
+    'setup-options' => [
+        'source' => $sources['build'].'setup.options.php',
         ],
    ]);
 
