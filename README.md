@@ -1,3 +1,7 @@
+# Das Repository ist umgezogen!
+
+[simpleNaMiAPIExtra wird auf Bitbucket weiterentwickelt.](https://bitbucket.org/Florian_1990/simplenamiapiextra)
+
 # simpleNaMiAPIExtra
 
 Ein Extra, das [simpleNaMiAPI](https://github.com/Florian1990/simpleNaMiAPI) in
